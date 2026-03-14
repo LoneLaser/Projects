@@ -1,0 +1,127 @@
+/* ── Global Reset & Foundations ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --sidebar-width: 260px;
+  --header-height: 64px;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #f8f9fc;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+}
+
+/* ── Scrollbar styling ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* ── Sidebar polish ── */
+.sidebar-nav .MuiListItemButton-root {
+  border-radius: 10px;
+  margin: 2px 8px;
+  padding: 10px 16px;
+  transition: var(--transition);
+}
+.sidebar-nav .MuiListItemButton-root:hover {
+  background: rgba(99, 102, 241, 0.08);
+}
+.sidebar-nav .MuiListItemButton-root.Mui-selected {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(139, 92, 246, 0.10) 100%);
+  color: #4f46e5;
+}
+.sidebar-nav .MuiListItemButton-root.Mui-selected .MuiListItemIcon-root {
+  color: #4f46e5;
+}
+.sidebar-nav .MuiListItemButton-root.Mui-selected:hover {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.18) 0%, rgba(139, 92, 246, 0.15) 100%);
+}
+.sidebar-nav .MuiListItemIcon-root {
+  min-width: 40px;
+  color: #94a3b8;
+  transition: var(--transition);
+}
+
+/* ── Card hover effects ── */
+.hover-card {
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.hover-card:hover {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+/* ── Page header styling ── */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+/* ── Status badge animations ── */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.status-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ── AG Grid overrides ── */
+.ag-theme-alpine {
+  --ag-border-radius: var(--radius-sm);
+  --ag-row-hover-color: #f1f5f9;
+  --ag-header-background-color: #f8fafc;
+  --ag-header-foreground-color: #475569;
+  --ag-font-family: 'Inter', sans-serif;
+  --ag-font-size: 13px;
+}
+
+/* ── Monaco editor container ── */
+.monaco-wrapper {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+/* ── Smooth page transitions ── */
+.page-content {
+  animation: fadeIn 0.2s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+

@@ -1,0 +1,11 @@
+node_modules
+dist
+.git
+.gitignore
+*.md
+.env
+.DS_Store
+reports/generated/*
+database/*.db
+database/*.db-wal
+database/*.db-shm
